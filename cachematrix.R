@@ -1,7 +1,12 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This source file has two functions 
+## makeCacheMatrix - this is responsible to create the cache functions and to have getters/setters to get and set 
+## the cache and data
 
-## Write a short comment describing this function
+## makeCacheMatrix
+## set -> sets the matrix for which the inverse needs to be taken
+## get -> gets the matrix for which we need the inverse
+## setinverse -> sets the inverse for the matrix
+## getinverse -> gets the inverse for the matrix
 
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL
@@ -17,7 +22,12 @@ makeCacheMatrix <- function(x = matrix()) {
        getinverse = getinverse)
 }
 
-## Write a short comment describing this function
+## cacheSolve
+## This function takes makeCacheMatrix as input
+## The first check we do is to get the inverse from the makeCacheMatrix
+## If it exists then we return this itseld
+## If not we calculate the inverse using solve() and set the same in makeCacheMatrix so that further on it is available
+## Additionally we return the function as well
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -30,5 +40,4 @@ cacheSolve <- function(x, ...) {
         inv <- solve(data,...)
         x$setinverse(inv)
         inv
-  
 }
